@@ -40,6 +40,11 @@ ai_tools_used = {
     "Gradient Boosting" : 3
 }
 
+ai_contributes_to_bias ={
+    "Yes" : 42,
+    "No" : 12
+}
+
 benefits_of_ai = dict(sorted(benefits_of_ai.items(), key=lambda item: item[1], reverse=True))
 
 def generate_top_six_ras_pie_chart():
@@ -102,6 +107,21 @@ def generate_ai_tools_bar_chart():
     plt.tight_layout()
     plt.savefig('tables/ai_tools_used_bar_chart.png')
 
+def generate_ai_contributes_to_bias_pie_chart():
+    plt.figure(figsize=(5, 5))
+    plt.pie(
+        ai_contributes_to_bias.values(), 
+        labels=ai_contributes_to_bias.keys(), 
+        autopct='%.0f%%', 
+        startangle=90,
+        colors=sns.color_palette('Pastel1', n_colors=len(ai_contributes_to_bias)),
+        wedgeprops={'edgecolor': 'gray'}
+    )
+    plt.title('ARA Contributes to Bias', pad=20)
+    plt.axis('equal')  # Equal aspect ratio ensures that pie chart is circular.
+    plt.tight_layout()
+    plt.savefig('tables/ara_contributes_to_bias.png')
+
 if __name__ == "__main__":
     sns.set_style("whitegrid")
     sns.set_palette('Greys')
@@ -110,3 +130,4 @@ if __name__ == "__main__":
     generate_benefits_of_ai_bar_chart()
     generte_is_ml_used_pid_chart()
     generate_ai_tools_bar_chart()
+    generate_ai_contributes_to_bias_pie_chart()
