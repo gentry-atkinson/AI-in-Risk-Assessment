@@ -45,7 +45,23 @@ ai_contributes_to_bias ={
     "No" : 12
 }
 
+sources_of_bias = {
+    "Training Data" : 34,
+    "Actions by Developers" : 8,
+    "Institutional Bias" : 4,
+    "Proxy Variables" : 22,
+    "Rationalization of Bias" : 8,
+    "Data Size" : 2,
+    "Removing Human Judgement" : 4,
+    "Definitions of Fairness" : 5,
+    "Human Interpretation" : 7,
+    "Black Boxes" : 5,
+    "Calibration" : 6,
+    "Algorithmic Bias" : 2,
+}
+
 benefits_of_ai = dict(sorted(benefits_of_ai.items(), key=lambda item: item[1], reverse=True))
+sources_of_bias = dict(sorted(sources_of_bias.items(), key=lambda item: item[1], reverse=True))
 
 def generate_top_six_ras_pie_chart():
     plt.figure(figsize=(8, 8))
@@ -122,6 +138,21 @@ def generate_ai_contributes_to_bias_pie_chart():
     plt.tight_layout()
     plt.savefig('tables/ara_contributes_to_bias.png')
 
+def generate_sources_of_bias_bar_chart():
+    plt.figure(figsize=(8, 6))
+    sns.barplot(x=list(sources_of_bias.keys()), y=list(sources_of_bias.values()))
+    plt.xticks(rotation=45, ha='right')
+    plt.title('Sources of Bias in AI Risk Assessment', pad=20)
+    # plt.xlabel('Benefit')
+    # plt.ylabel('Number of Studies Mentioning Benefit')
+    # place a numerical value above each bar
+    for index, value in enumerate(sources_of_bias.values()):
+        plt.text(index, value + 0.5, str(value), ha='center', va='bottom')
+    # set the y-axis range to be slightly higher than the maximum value for better visualization
+    plt.ylim(0, max(sources_of_bias.values()) + 2)
+    plt.tight_layout()
+    plt.savefig('tables/sources_of_bias_bar_chart.png')
+
 if __name__ == "__main__":
     sns.set_style("whitegrid")
     sns.set_palette('Greys')
@@ -131,3 +162,4 @@ if __name__ == "__main__":
     generte_is_ml_used_pid_chart()
     generate_ai_tools_bar_chart()
     generate_ai_contributes_to_bias_pie_chart()
+    generate_sources_of_bias_bar_chart()
