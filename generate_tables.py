@@ -10,7 +10,7 @@ top_six_risk_assessments = {
     'COMPAS' : 36,
     'PSA' : 19,
     'LSI-R' : 11,
-    'VPRA' : 8,
+    'VPRAI' : 8,
     'CPRAT' : 8,
     'PCRA' : 4
 }
