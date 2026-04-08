@@ -11,7 +11,7 @@ top_six_risk_assessments = {
     'PSA' : 19,
     'LSI-R' : 11,
     'VPRAI' : 8,
-    'CPRAT' : 8,
+    'CPAT' : 8,
     'PCRA' : 4
 }
 
