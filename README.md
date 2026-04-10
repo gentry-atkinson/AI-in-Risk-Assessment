@@ -20,7 +20,5 @@ Utah State University
 ## Results
 Although many sources suggested optimism over the possible positive impacts of AI as a tool for risk assessment, most sources recognize that those promises (e.g., reducing the human bias present in the sentencing process or improving the efficiency of resource allocation by courts) have not been realized. In fact, 78% of surveyed sources express concerns that algorithmic risk assessment introduces bias into courts, sustains historical bias found in the training data of those tools, or masks human subjectivity by presenting the veneer of algorithmic objectivity.
 
-![A pie chart indicating that 78% of surveyed sources express concern over bias in ARA, while 22% do not.](tables/ara_contributes_to_bias.png)
-
 
 
