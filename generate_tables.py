@@ -7,7 +7,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 top_six_risk_assessments = {
-    'COMPAS' : 36,
+    'COMPAS' : 37,
     'PSA' : 19,
     'LSI-R' : 11,
     'VPRAI' : 8,
@@ -16,59 +16,60 @@ top_six_risk_assessments = {
 }
 
 benefits_of_ai = {
-    'Efficiency': 36,
-    'Reduction of Bias': 32,
+    'Efficiency': 38,
+    'Reduction of Bias': 34,
     'Improved Predictions': 26,
-    'Transparency': 13,
+    'Transparency': 14,
     'Objectivity' : 17,
     'Individuation' : 7,
     'Reducing Crime' : 8,
-    'Reducing Incarceration' : 15,
+    'Reducing Incarceration' : 16,
     'Social or Justice Reform' : 12,
     'Eliminating Cash Bail' : 7
 }
 
 is_ml_used = {
-    "Yes" : 40,
+    "Yes" : 42,
     "No" :14
 }
 
 ai_tools_used = {
     "Random Forest" : 6,
-    "Logistic Regression"	: 6,
+    "Logistic Regression"	: 7,
     "SVMs" : 3,
-    "Gradient Boosting" : 3
+    "Gradient Boosting" : 5
 }
 
 ai_contributes_to_bias ={
-    "Yes" : 42,
+    "Yes" : 44,
     "No" : 12
 }
 
 sources_of_bias = {
-    "Training Data" : 34,
+    "Training Data" : 36,
     "Actions by Developers" : 8,
     "Institutional Bias" : 4,
     "Proxy Variables" : 22,
     "Rationalization of Bias" : 8,
     "Data Size" : 2,
     "Removing Human Judgement" : 4,
-    "Definitions of Fairness" : 5,
+    "Definitions of Fairness" : 6,
     "Human Interpretation" : 7,
     "Black Boxes" : 5,
     "Calibration" : 6,
-    "Algorithmic Bias" : 2,
+    "Algorithmic Bias" : 4,
 }
 
 benefits_of_ai = dict(sorted(benefits_of_ai.items(), key=lambda item: item[1], reverse=True))
 sources_of_bias = dict(sorted(sources_of_bias.items(), key=lambda item: item[1], reverse=True))
+ai_tools_used = dict(sorted(ai_tools_used.items(), key=lambda item: item[1], reverse=True))
 
 def generate_top_six_ras_pie_chart():
     plt.figure(figsize=(8, 8))
     plt.pie(
         top_six_risk_assessments.values(), 
         labels=top_six_risk_assessments.keys(), 
-        autopct='%.0f%%', 
+        autopct=lambda p: '{:.0f}'.format(p * sum(top_six_risk_assessments.values()) / 100), 
         startangle=90,
         colors=sns.color_palette('Pastel1', n_colors=len(top_six_risk_assessments)),
         wedgeprops={'edgecolor': 'gray'}
