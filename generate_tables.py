@@ -65,7 +65,7 @@ sources_of_bias = dict(sorted(sources_of_bias.items(), key=lambda item: item[1],
 ai_tools_used = dict(sorted(ai_tools_used.items(), key=lambda item: item[1], reverse=True))
 
 def generate_top_six_ras_pie_chart():
-    plt.figure(figsize=(8, 8))
+    plt.figure(figsize=(5, 4))
     plt.pie(
         top_six_risk_assessments.values(), 
         labels=top_six_risk_assessments.keys(), 
@@ -74,28 +74,28 @@ def generate_top_six_ras_pie_chart():
         colors=sns.color_palette('Pastel1', n_colors=len(top_six_risk_assessments)),
         wedgeprops={'edgecolor': 'gray'}
     )
-    plt.title('Top 6 Risk Assessment Tools Discussed in Studies', pad=20)
+    plt.title('Top 6 Risk Assessment Tools Discussed in Studies', pad=10)
     plt.axis('equal')  # Equal aspect ratio ensures that pie chart is circular.
     plt.tight_layout()
     plt.savefig('tables/top_six_ras_pie_chart.png')
 
 def generate_benefits_of_ai_bar_chart():
-    plt.figure(figsize=(8, 6))
+    plt.figure(figsize=(4, 3))
     sns.barplot(x=list(benefits_of_ai.keys()), y=list(benefits_of_ai.values()))
     plt.xticks(rotation=45, ha='right')
-    plt.title('Benefits of AI in Risk Assessment', pad=20)
+    plt.title('Benefits of AI in Risk Assessment', pad=10)
     # plt.xlabel('Benefit')
     # plt.ylabel('Number of Studies Mentioning Benefit')
     # place a numerical value above each bar
     for index, value in enumerate(benefits_of_ai.values()):
         plt.text(index, value + 0.5, str(value), ha='center', va='bottom')
     # set the y-axis range to be slightly higher than the maximum value for better visualization
-    plt.ylim(0, max(benefits_of_ai.values()) + 5)
+    plt.ylim(0, max(benefits_of_ai.values()) + 10)
     plt.tight_layout()
     plt.savefig('tables/benefits_of_ai_bar_chart.png')
 
-def generte_is_ml_used_pid_chart():
-    plt.figure(figsize=(5, 5))
+def generte_is_ml_used_pie_chart():
+    plt.figure(figsize=(3, 2))
     plt.pie(
         is_ml_used.values(), 
         labels=is_ml_used.keys(), 
@@ -110,7 +110,7 @@ def generte_is_ml_used_pid_chart():
     plt.savefig('tables/is_ml_used.png')
 
 def generate_ai_tools_bar_chart():
-    plt.figure(figsize=(8, 6))
+    plt.figure(figsize=(4, 3))
     sns.barplot(x=list(ai_tools_used.keys()), y=list(ai_tools_used.values()))
     plt.xticks(rotation=45, ha='right')
     plt.title('Count of AI Tools Used in Experiments', pad=20)
@@ -125,7 +125,7 @@ def generate_ai_tools_bar_chart():
     plt.savefig('tables/ai_tools_used_bar_chart.png')
 
 def generate_ai_contributes_to_bias_pie_chart():
-    plt.figure(figsize=(5, 5))
+    plt.figure(figsize=(2, 2))
     plt.pie(
         ai_contributes_to_bias.values(), 
         labels=ai_contributes_to_bias.keys(), 
@@ -140,7 +140,7 @@ def generate_ai_contributes_to_bias_pie_chart():
     plt.savefig('tables/ara_contributes_to_bias.png')
 
 def generate_sources_of_bias_bar_chart():
-    plt.figure(figsize=(8, 6))
+    plt.figure(figsize=(4, 3))
     sns.barplot(x=list(sources_of_bias.keys()), y=list(sources_of_bias.values()))
     plt.xticks(rotation=45, ha='right')
     plt.title('Sources of Bias in AI Risk Assessment', pad=20)
@@ -157,10 +157,10 @@ def generate_sources_of_bias_bar_chart():
 if __name__ == "__main__":
     sns.set_style("whitegrid")
     sns.set_palette('Greys')
-    sns.set_theme(font_scale=1.5) 
+    sns.set_theme(font_scale=0.8) 
     generate_top_six_ras_pie_chart()
     generate_benefits_of_ai_bar_chart()
-    generte_is_ml_used_pid_chart()
+    generte_is_ml_used_pie_chart()
     generate_ai_tools_bar_chart()
     generate_ai_contributes_to_bias_pie_chart()
     generate_sources_of_bias_bar_chart()
