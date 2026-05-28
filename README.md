@@ -15,10 +15,12 @@ Utah State University
 - What, if any, is the evidence and apparent source of bias in algorithmic risk assessment?
 
 ## Sources
-135 sources collected from Google Scholar were considered for inclusion in this survey. From them, 54 were selected for review in this survey. The inclusion criteria can be found in Section 4 of our paper, which is currently under review.
+168 sources collected from Google Scholar and the ACM Digital Library were considered for inclusion in this survey. From them, 56 were selected for review in this survey. The inclusion criteria can be found in Section 4 of our paper, which is currently under review.
 
 ## Results
-Although many sources suggested optimism over the possible positive impacts of AI as a tool for risk assessment, most sources recognize that those promises (e.g., reducing the human bias present in the sentencing process or improving the efficiency of resource allocation by courts) have not been realized. In fact, 78% of surveyed sources express concerns that algorithmic risk assessment introduces bias into courts, sustains historical bias found in the training data of those tools, or masks human subjectivity by presenting the veneer of algorithmic objectivity.
+Although many sources suggested optimism over the possible positive impacts of AI as a tool for risk assessment, most sources recognize that those promises (e.g., reducing the human bias present in the sentencing process or improving the efficiency of resource allocation by courts) have not been realized. In fact, 79% of surveyed sources express concerns that algorithmic risk assessment introduces bias into courts, sustains historical bias found in the training data of those tools, or masks human subjectivity by presenting the veneer of algorithmic objectivity.
+
+Our findings indicate that while AI holds an enormous potential for minimizing the existing biases in criminal justice, it is also experiencing a substantial crisis of public confidence. 
 
 
 
