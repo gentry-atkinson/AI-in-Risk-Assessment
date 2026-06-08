@@ -66,10 +66,12 @@ ai_tools_used = dict(sorted(ai_tools_used.items(), key=lambda item: item[1], rev
 
 def generate_top_six_ras_pie_chart():
     plt.figure(figsize=(8, 8))
+    values = list(top_six_risk_assessments.values())
+    total = sum(values)
     plt.pie(
-        top_six_risk_assessments.values(), 
-        labels=top_six_risk_assessments.keys(), 
-        autopct='%.0f%%', 
+        values,
+        labels=top_six_risk_assessments.keys(),
+        autopct=lambda pct: str(round(pct * total / 100)),
         startangle=90,
         colors=sns.color_palette('Pastel1', n_colors=len(top_six_risk_assessments)),
         wedgeprops={'edgecolor': 'gray'}
@@ -187,12 +189,12 @@ def risk_and_tools_together():
         colors=sns.color_palette('Pastel1', n_colors=len(is_ml_used)),
         wedgeprops={'edgecolor': 'gray'}
     )
-    ax_left.set_title('Is ML Used for Risk Assessment', pad=20)
+    ax_left.set_title('(a) Is ML Used for Risk Assessment', pad=20)
     ax_left.axis('equal')
 
     sns.barplot(x=list(ai_tools_used.keys()), y=list(ai_tools_used.values()), ax=ax_right)
     ax_right.set_xticklabels(ax_right.get_xticklabels(), rotation=45, ha='right')
-    ax_right.set_title('Count of ML Tools Used in Experiments', pad=20)
+    ax_right.set_title('(b) Count of ML Tools Used in Experiments', pad=20)
     for index, value in enumerate(ai_tools_used.values()):
         ax_right.text(index, value + 0.2, str(value), ha='center', va='bottom')
     ax_right.set_ylim(0, max(ai_tools_used.values()) + 2)
